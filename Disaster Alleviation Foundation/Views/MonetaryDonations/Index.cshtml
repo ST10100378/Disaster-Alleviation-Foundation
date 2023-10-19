@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Disaster_Alleviation_Foundation.Models.MonetaryDonation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Capture New Monetary Donations</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserName">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserName">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
