@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Disaster_Alleviation_Foundation.Models.AllocateGood>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Allocate Goods Donation</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserName">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserName">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
