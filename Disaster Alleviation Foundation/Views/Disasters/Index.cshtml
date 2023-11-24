@@ -4,44 +4,111 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    /* Style for table section */
+    .table-section {
+        margin-bottom: 40px;
+    }
+
+    /* Style for disaster descriptions */
+    .description-section {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+        .description-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .description-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 10px;
+        }
+</style>
+
 <h1>Capture A New Disaster</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AidType)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AidType)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Type">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Type">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Type">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!-- Table Section -->
+<section class="table-section">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AidType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AidType)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Type">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Type">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Type">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+<!-- Description Section -->
+<section class="description-section">
+    <h2>Description of Natural Disasters</h2>
+    <p>
+        <strong>Earthquakes:</strong> Sudden shaking of the ground caused by the movement of tectonic plates.
+    </p>
+    <p>
+        <strong>Hurricanes / Typhoons / Cyclones:</strong> Intense tropical storms with strong winds and heavy rainfall.
+    </p>
+    <p>
+        <strong>Floods:</strong> Overflow of water onto normally dry land, often due to heavy rain, storms, or melting snow.
+    </p>
+    <p>
+        <strong>Tornadoes:</strong> Violently rotating columns of air extending from a thunderstorm to the ground.
+    </p>
+    <p>
+        <strong>Wildfires:</strong> Uncontrolled fires in forests or other wildlands, often exacerbated by dry conditions and high winds.
+    </p>
+    <p>
+        <strong>Volcanic Eruptions:</strong> Eruptions of molten rock, ash, and gases from volcanoes.
+    </p>
+    <p>
+        <strong>Droughts:</strong> Extended periods of significantly below-average rainfall leading to water shortages and crop failures.
+    </p>
+    <p>
+        <strong>Landslides:</strong> Rapid downhill movement of large amounts of rock, soil, and debris.
+    </p>
+    <p>
+        <strong>Tsunamis:</strong> Large ocean waves caused by underwater earthquakes, volcanic eruptions, or landslides.
+    </p>
+    <p>
+        <strong>Heatwaves:</strong> Prolonged periods of excessively high temperatures.
+    </p>
+</section>
+
